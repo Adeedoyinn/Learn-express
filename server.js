@@ -25,7 +25,6 @@ app.use('/register', require("./routes/registerUser"));
 app.use('/employees', verifyJWT, require("./routes/employees"));
 app.use('/logout', require("./routes/logoutUser"))
 app.use('/', require("./routes/root"));
-app.use
 
 mongoose.connection.once('open', () =>{
     console.log("DB connected");
