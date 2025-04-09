@@ -5,9 +5,9 @@ const path = require('path')
 const PORT = process.env.PORT || 3501;
 const cors = require('cors');//nc
 const cookieParser = require("cookie-parser");
-const verifyJWT = require("../Learn express/middleware/verifyMyJWT")
+const verifyJWT = require("./middleware/verifyMyJWT")
 const mongoose = require('mongoose');
-const connectDB = require("../Learn express/config/db_connect");
+const connectDB = require("./config/db_connect");
 const corsOptions = require("./config/corsConfig")
 
 connectDB();
@@ -25,7 +25,6 @@ app.use('/register', require("./routes/registerUser"));
 app.use('/employees', verifyJWT, require("./routes/employees"));
 app.use('/logout', require("./routes/logoutUser"))
 app.use('/', require("./routes/root"));
-app.use
 
 mongoose.connection.once('open', () =>{
     console.log("DB connected");
